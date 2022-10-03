@@ -33,7 +33,7 @@ public class Space : MonoBehaviour
         }
         background.Apply();
         Rect rect = new Rect(0, 0, background.width, background.height);
-        Vector2 pivot = new Vector2(0.5f, 0.5f); // new Vector2(background.width/2, background.height/2);
+        Vector2 pivot = new Vector2(0.5f, 0.5f); 
         GetComponent<SpriteRenderer>().sprite = Sprite.Create(background, rect, pivot);
     }
 
