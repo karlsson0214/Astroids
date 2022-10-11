@@ -7,11 +7,13 @@ public class Rocket : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Sprite rocket;
     [SerializeField] private Sprite rocketWithFlame;
+    [SerializeField] private float bulletForce = 100;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private float xMax;
     private float yMax;
     private float rotationSpeed = 120f;
+    private Transform gunTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class Rocket : MonoBehaviour
         // camera center to top of screen in world coordinates
         yMax = Camera.main.orthographicSize;
         xMax = yMax * Camera.main.aspect;
+
+        gunTransform = transform.Find("Gun");
 
     }
 
@@ -47,9 +51,13 @@ public class Rocket : MonoBehaviour
             // turn right
             rb.SetRotation(rb.rotation - rotationSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             // shoot
+            GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, transform.rotation);
+            Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+            // forward
+            rbBullet.AddForce(transform.right * bulletForce);
         }
 
         // ouside screen => appear on opposite side
