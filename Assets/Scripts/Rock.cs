@@ -29,6 +29,7 @@ public class Rock : WrapScreenMover
         {
             Bullet bulletScriptObject = collision.gameObject.GetComponent<Bullet>();
             health -= bulletScriptObject.Damage;
+            Destroy(bulletScriptObject);
             Debug.Log("Rock healt: " + health);
         }
     }
