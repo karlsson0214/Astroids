@@ -8,9 +8,11 @@ public class WrapScreenMover : MonoBehaviour
     protected float xMax;
     protected float yMax;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-
+        // camera center to top of screen in world coordinates
+        yMax = Camera.main.orthographicSize;
+        xMax = yMax * Camera.main.aspect;
     }
 
     // Update is called once per frame

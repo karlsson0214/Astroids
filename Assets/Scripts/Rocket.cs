@@ -14,13 +14,12 @@ public class Rocket : WrapScreenMover
     private float rotationSpeed = 120f;
     private Transform gunTransform;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        // camera center to top of screen in world coordinates
-        yMax = Camera.main.orthographicSize;
-        xMax = yMax * Camera.main.aspect;
+        
         gunTransform = transform.Find("Gun");
 
     }
