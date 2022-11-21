@@ -7,7 +7,8 @@ public class Rocket : WrapScreenMover
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Sprite rocket;
     [SerializeField] private Sprite rocketWithFlame;
-    [SerializeField] private float bulletForce = 100;
+    [SerializeField] private float bulletForce = 1000;
+    [SerializeField] private float bulletSpeed = 10;
 
     private SpriteRenderer sr;
 
@@ -54,8 +55,14 @@ public class Rocket : WrapScreenMover
             // shoot
             GameObject bullet = Instantiate(bulletPrefab, gunTransform.position, transform.rotation);
             Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+            // unity vector pointing forward
+            Vector2 forward = new Vector2(transform.right.x, transform.right.y);
+            Debug.Log("forward: " + forward.x + ", " + forward.y);
+            Debug.Log("velocity: " + rb.velocity.x + ", " + rb.velocity.y);
+            rbBullet.velocity = rb.velocity + forward * bulletSpeed;
+            Debug.Log("bullet speed: " + rbBullet.velocity);
             // forward
-            rbBullet.AddForce(transform.right * bulletForce);
+            //rbBullet.AddForce(transform.right * bulletForce);
         }
 
        

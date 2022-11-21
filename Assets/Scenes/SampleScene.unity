@@ -345,6 +345,7 @@ MonoBehaviour:
   rocket: {fileID: 21300000, guid: 1849eae5c67ad4249b1f18dc1d49f33f, type: 3}
   rocketWithFlame: {fileID: 21300000, guid: 14a6411a4e946624bb2e12e9c0dabd2e, type: 3}
   bulletForce: 100
+  bulletSpeed: 10
 --- !u!1 &985678128
 GameObject:
   m_ObjectHideFlags: 0
