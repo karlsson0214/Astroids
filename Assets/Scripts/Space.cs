@@ -31,6 +31,19 @@ public class Space : MonoBehaviour
 
             background.SetPixel(x, y, new UnityEngine.Color(red, green, blue));
         }
+        for (int i = 0; i < 100; ++i)
+        {
+            int x = Random.Range(0, background.width - 1);
+            int y = Random.Range(0, background.height - 1);
+            float red = Random.Range(0.4f, 0.8f);
+            float green = Random.Range(0.4f, 0.8f);
+            float blue = Random.Range(0.4f, 0.8f);
+
+            background.SetPixel(x, y, new UnityEngine.Color(red, green, blue));
+            background.SetPixel(x + 1, y, new UnityEngine.Color(red, green, blue));
+            background.SetPixel(x, y + 1, new UnityEngine.Color(red, green, blue));
+            background.SetPixel(x + 1, y + 1, new UnityEngine.Color(red, green, blue));
+        }
         background.Apply();
         Rect rect = new Rect(0, 0, background.width, background.height);
         Vector2 pivot = new Vector2(0.5f, 0.5f); 
