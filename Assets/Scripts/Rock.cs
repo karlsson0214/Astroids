@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Rock : WrapScreenMover
 {
-    private int health = 16;
+    [SerializeField] private GameObject mediumRockPrefab;
+
+    protected int health = 16;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -30,7 +33,17 @@ public class Rock : WrapScreenMover
             Bullet bulletScriptObject = collision.gameObject.GetComponent<Bullet>();
             health -= bulletScriptObject.Damage;
             Destroy(collision.gameObject);
-            Debug.Log("Rock healt: " + health);
+            //Debug.Log("Rock healt: " + health);
+            if (health <= 0)
+            {
+                for (int i = 0; i < 4; ++i)
+                {
+                    Instantiate(mediumRockPrefab,
+                    new Vector2(rb.transform.position.x, rb.transform.position.y),
+                    Quaternion.identity);
+                }
+                Destroy(gameObject);
+            }
         }
         
     }
