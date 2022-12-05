@@ -20,6 +20,8 @@ public class Rocket : WrapScreenMover
         base.Start();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        rb.freezeRotation = true;
+
         
         gunTransform = transform.Find("Gun");
 
