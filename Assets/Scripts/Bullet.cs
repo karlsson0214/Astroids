@@ -25,4 +25,13 @@ public class Bullet : WrapScreenMover
     {
         base.Update();
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.StartsWith("Bullet"))
+        {
+            Debug.Log("Collision bullet bullet");
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 }
