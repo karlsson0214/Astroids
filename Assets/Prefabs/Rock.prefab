@@ -134,6 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1968e4be02616f348a37caac46e89045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullSprite: {fileID: 21300000, guid: 38c56389826bd1b42b3811ad805db85b, type: 3}
-  halfSprite: {fileID: 21300000, guid: bebe31e9c8db5994e9ab1b6d2f0872e4, type: 3}
-  quaterSprite: {fileID: 21300000, guid: f4e361897c1e9d5438ea72d99f88bc13, type: 3}
+  mediumRockPrefab: {fileID: 8568644842021436168, guid: 6773f996799a83f49aee2e74cd9717ec, type: 3}
