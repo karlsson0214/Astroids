@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : WrapScreenMover
 {
-    private int damage = 4;
+    private int damage = 4; 
     // Start is called before the first frame update
 
     public int Damage
